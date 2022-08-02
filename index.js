@@ -42,7 +42,7 @@ const characters = require('./swapi');
  */
 
 function listAllCharacters(characters) {
-  if (characters.length === 0){
+  if (!characters.length){
     throw `Error`
   }
   return characters.map((character) => character.name)
@@ -168,11 +168,10 @@ function checkForEyeColor(characters, eyes) {
 
 function getAllCharactersCreatedAfterYear(characters, date) {
   return characters.filter((character) => Number(character.created.slice(0,4)) >= date)
-  // console.log(Number(characters[0].created.slice(0,4)))
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
@@ -224,7 +223,14 @@ console.log(getAllCharactersCreatedAfterYear(characters, 2016));
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  if(!characters.length){
+    throw `Error`
+  } if(!movie){
+    throw `Error`
+  }
+  return characters.find((character) => character.films.includes(movie))
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
