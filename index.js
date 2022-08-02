@@ -233,7 +233,12 @@ console.log(getAllCharactersCreatedAfterYear(characters, 2016));
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  if (!characters.length || !movie.length) {
+    throw "Error";
+  }
+  return characters.find(({ films }) => films.includes(movie));
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
