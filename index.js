@@ -46,11 +46,17 @@ function listAllCharacters(characters) {
   if (!characters.length) {
     throw "Error";
   }
-  return characters.map(({ name }) => {
+  // return characters.map(({ name }) => {
+  //   if (name) {
+  //     return name;
+  //   }
+  // });
+  characters.reduce((acc, { name }) => {
     if (name) {
-      return name;
+      acc.push(name);
     }
-  });
+    return acc;
+  }, []);
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -181,7 +187,7 @@ function getAllCharactersCreatedAfterYear(characters, date) {
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
@@ -258,10 +264,17 @@ function getCharacterInMovie(characters, movie) {
  *  @returns {Array[]}} - returns an array of arrays.
  */
 
-function homeWorldValues() {}
+function homeWorldValues(characters) {
+  return characters.reduce((acc, i) => {
+    if (i.eye_color.includes("yellow")) {
+      acc.push(i);
+    }
+    return acc;
+  }, []);
+}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(homeWorldValues(characters));
+console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
