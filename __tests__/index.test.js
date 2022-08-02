@@ -157,7 +157,7 @@ describe('getAllCharactersCreatedAfterYear', () => {
   });
 });
 
-describe.only('getCharacterInMovie', () => {
+describe('getCharacterInMovie', () => {
   test('should throw error if movie array is empty', () => {
     const actual = () => getCharacterInMovie([]);
     expect(actual).toThrow();
