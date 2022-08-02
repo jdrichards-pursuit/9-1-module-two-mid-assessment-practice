@@ -265,16 +265,20 @@ function getCharacterInMovie(characters, movie) {
  */
 
 function homeWorldValues(characters) {
-  return characters.reduce((acc, i) => {
-    if (i.eye_color.includes("yellow")) {
-      acc.push(i);
-    }
-    return acc;
-  }, []);
+  const values = characters.filter(({ eye_color }) => eye_color === "yellow");
+  return values.forEach((obj) => console.log(Object.values(obj)));
+
+  // const values2 = characters.reduce((acc, i) => {
+  //   if (i.eye_color.includes("yellow")) {
+  //     acc.push(i);
+  //   }
+  //   return acc;
+  // }, []);
+  // return values2.forEach((obj) => console.log(Object.values(obj)));
 }
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(homeWorldValues(characters));
+// console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
