@@ -253,12 +253,12 @@ function getCharacterInMovie(characters, movie) {
 function homeWorldValues(characters) {
   let arr = []
   let objs = characters.filter((character) => character.eye_color === `yellow`)
-  arr.push(objs)
+  arr.push([objs])
   return arr
 }
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(homeWorldValues(characters));
+console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
