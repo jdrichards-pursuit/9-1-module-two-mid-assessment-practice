@@ -1,4 +1,4 @@
-const characters = require('./swapi');
+const characters = require("./swapi");
 // ****** DO NOT CHANGE THE LINE ABOVE
 // ****** IN THIS EXERCISE, TIME EACH CONSOLE.LOG ONE AT A TIME AND THEN COMMENT IT BACK OUT OR OTHER FUNCTIONS WILL NOT TEST CORRECTLY
 
@@ -41,7 +41,16 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if (!characters.length) {
+    throw "Error";
+  }
+  return characters.map(({ name }) => {
+    if (name) {
+      return name;
+    }
+  });
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -61,7 +70,9 @@ function listAllCharacters() {}
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 //console.log(averageHeightOfAllCharacters(characters))
@@ -228,7 +239,7 @@ function getCharacterInMovie() {}
 function homeWorldValues() {}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(homeWorldValues(characters));
+// console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
@@ -241,5 +252,5 @@ module.exports = {
   averageHeightOfAllCharacters,
   checkForEyeColor,
   getAllCharactersCreatedAfterYear,
-  getCharacterInMovie
+  getCharacterInMovie,
 };
