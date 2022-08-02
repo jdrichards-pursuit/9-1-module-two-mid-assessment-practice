@@ -81,7 +81,7 @@ function averageHeightOfAllCharacters(characters) {
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+// console.log(averageHeightOfAllCharacters(characters))
 
 //*************************************************************************************************/
 
@@ -115,7 +115,18 @@ function averageHeightOfAllCharacters(characters) {
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if (!characters.length){
+    throw "Error: No one has that eye color"
+  }
+  
+  const hasEyeColor = characters.some((char) => {
+    if (char.eye_color === eyes){
+      return true
+    }
+  })
+  return hasEyeColor
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
