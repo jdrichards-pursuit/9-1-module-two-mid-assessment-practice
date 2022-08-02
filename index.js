@@ -172,7 +172,6 @@ function checkForEyeColor(characters, eyes) {
 
 function getAllCharactersCreatedAfterYear(characters, date) {
   return characters.filter((char) => Number(char.created.slice(0,4)) >= date)
-  
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
