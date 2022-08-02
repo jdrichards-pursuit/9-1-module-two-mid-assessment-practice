@@ -47,7 +47,7 @@ describe('averageHeightOfAllCharacters', () => {
   });
 });
 
-describe.only('checkForEyeColor', () => {
+describe('checkForEyeColor', () => {
   test('should use the `.some()` method', () => {
     const text = checkForEyeColor.toString();
     expect(text).toMatch(/\.some\(.*\)/s);
@@ -157,7 +157,7 @@ describe('getAllCharactersCreatedAfterYear', () => {
   });
 });
 
-describe('getCharacterInMovie', () => {
+describe.only('getCharacterInMovie', () => {
   test('should throw error if movie array is empty', () => {
     const actual = () => getCharacterInMovie([]);
     expect(actual).toThrow();

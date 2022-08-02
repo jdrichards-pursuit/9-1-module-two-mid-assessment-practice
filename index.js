@@ -176,9 +176,9 @@ if (!characters.length){
 
 function getAllCharactersCreatedAfterYear(characters,date) {
   let after = characters.filter((copy) => {
-
   return Number(copy.created.slice(0,4)) > date
 })
+
 return after
 }
 
@@ -235,12 +235,18 @@ return after
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters,movie) {
+  if(!characters.length){
+    throw "no characters"
+  }
+
+ return(found = characters.find(({films})=> films.includes(movie)))
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
 // console.log(getCharacterInMovie([], 'The Phantom Menace'));
-// console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
+console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
 
 //*************************************************************************************************/
 // ****BONUS NO TESTS FOR THIS
