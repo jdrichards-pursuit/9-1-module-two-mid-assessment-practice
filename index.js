@@ -218,7 +218,11 @@ function getAllCharactersCreatedAfterYear(characters, date) {
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  // .films -> []
+  if(!characters.length || !movie) throw `There is no inputted data`
+  return characters.find(({films}) => films.includes(movie))
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
