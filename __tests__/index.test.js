@@ -35,7 +35,7 @@ describe('listAllCharacters', () => {
   });
 });
 
-describe.only('averageHeightOfAllCharacters', () => {
+describe('averageHeightOfAllCharacters', () => {
   test('should use the `.forEach()` method', () => {
     const text = averageHeightOfAllCharacters.toString();
     expect(text).toMatch(/\.forEach\(.*\)/s);
@@ -47,7 +47,7 @@ describe.only('averageHeightOfAllCharacters', () => {
   });
 });
 
-describe('checkForEyeColor', () => {
+describe.only('checkForEyeColor', () => {
   test('should use the `.some()` method', () => {
     const text = checkForEyeColor.toString();
     expect(text).toMatch(/\.some\(.*\)/s);

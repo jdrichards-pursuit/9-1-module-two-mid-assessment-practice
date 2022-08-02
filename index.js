@@ -72,9 +72,7 @@ function averageHeightOfAllCharacters(characters) {
   let avg = 0
   characters.forEach((character)=> {
     avg += Number(character.height)
-  
 }
-  
     )
 
 return (avg/characters.length)
@@ -115,11 +113,20 @@ return (avg/characters.length)
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters,eyes) {
+if (!characters.length){
+  throw "no one has that color"
+}
+  
+
+  return characters.some((color)=>
+      color.eye_color === eyes
+    )
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
-// console.log(checkForEyeColor(characters, "blue-gray"));
+//console.log(checkForEyeColor(characters, "blue-gray"));
 
 //*************************************************************************************************/
 
@@ -167,10 +174,16 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters,date) {
+  let after = characters.filter((copy) => {
+
+  return Number(copy.created.slice(0,4)) > date
+})
+return after
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+ //console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
