@@ -1,4 +1,4 @@
-const characters = require('./swapi');
+const characters = require("./swapi");
 // ****** DO NOT CHANGE THE LINE ABOVE
 // ****** IN THIS EXERCISE, TIME EACH CONSOLE.LOG ONE AT A TIME AND THEN COMMENT IT BACK OUT OR OTHER FUNCTIONS WILL NOT TEST CORRECTLY
 
@@ -43,7 +43,7 @@ const characters = require('./swapi');
 
 function listAllCharacters(characters) {
   if (!characters.length) {
-    throw `Error: array is empty`;
+    throw `Error: Array is empty`;
   }
   const names = characters.map(({ name }) => name);
   return names;
@@ -69,7 +69,7 @@ function listAllCharacters(characters) {
 
 function averageHeightOfAllCharacters(characters) {
   let heightSum = 0;
-  characters.forEach(({ height }) => heightSum += + height);
+  characters.forEach(({ height }) => (heightSum += +height));
   return heightSum / characters.length;
 }
 
@@ -108,7 +108,12 @@ function averageHeightOfAllCharacters(characters) {
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if (!characters.length) {
+    throw `Error: No one has that eye color`;
+  }
+  return characters.some(({ eye_color }) => eye_color === eyes);
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
@@ -160,10 +165,16 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+  return characters.filter((char) => {
+    if (+char.created.slice(0, 4) >= date) {
+      return char;
+    }
+  });
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+//console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
@@ -251,5 +262,5 @@ module.exports = {
   averageHeightOfAllCharacters,
   checkForEyeColor,
   getAllCharactersCreatedAfterYear,
-  getCharacterInMovie
+  getCharacterInMovie,
 };
