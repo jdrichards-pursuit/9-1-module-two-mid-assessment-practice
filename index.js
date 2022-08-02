@@ -1,3 +1,4 @@
+const results = require("./swapi");
 const characters = require("./swapi");
 // ****** DO NOT CHANGE THE LINE ABOVE
 // ****** IN THIS EXERCISE, TIME EACH CONSOLE.LOG ONE AT A TIME AND THEN COMMENT IT BACK OUT OR OTHER FUNCTIONS WILL NOT TEST CORRECTLY
@@ -71,11 +72,18 @@ function listAllCharacters(characters) {
  */
 
 function averageHeightOfAllCharacters(characters) {
-  
+  let average = 0;
+  characters.forEach((a) => {
+    if (a.height) {
+      average += a.height / characters.length;
+      Number(average.toFixed(1));
+    }
+  });
+  return average;
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+console.log(averageHeightOfAllCharacters(characters));
 
 //*************************************************************************************************/
 
