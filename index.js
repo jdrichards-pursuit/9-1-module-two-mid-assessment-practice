@@ -242,10 +242,14 @@ function getCharacterInMovie(characters, movie) {
  *  @returns {Array[]}} - returns an array of arrays.
  */
 
-function homeWorldValues() {}
+function homeWorldValues(characters) {
+  // eye_color
+  const eyeArr = characters.filter(({eye_color}) => eye_color === `yellow`)
+  return eyeArr.forEach((obj) => console.log(Object.entries(obj)))
+}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(homeWorldValues(characters));
+console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
