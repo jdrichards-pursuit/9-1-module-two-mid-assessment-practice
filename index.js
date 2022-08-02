@@ -74,12 +74,12 @@ function averageHeightOfAllCharacters(characters) {
   // return sum / characters.length
 
   // REDUCE
-  let total = characters.reduce((accum, {height}) => accum + +height ,0) 
-  return total / characters.length
+  return characters.reduce((accum, {height}) => accum + +height ,0) / characters.length
+  
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(averageHeightOfAllCharacters(characters))
+console.log(averageHeightOfAllCharacters(characters))
 
 //*************************************************************************************************/
 
@@ -257,7 +257,7 @@ function getCharacterInMovie(characters, movie) {
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
 // console.log(getCharacterInMovie([], 'The Phantom Menace'));
-console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
+// console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
 
 //*************************************************************************************************/
 // ****BONUS NO TESTS FOR THIS
