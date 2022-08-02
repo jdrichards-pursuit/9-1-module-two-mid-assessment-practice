@@ -45,10 +45,7 @@ function listAllCharacters(characters) {
   if (!characters.length){
     throw "Error"
   }
-  const charNames = characters.map((char) => {
-    return char.name
-  })
-  return charNames
+  return characters.map((char) => char.name)
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -120,12 +117,7 @@ function checkForEyeColor(characters, eyes) {
     throw "Error: No one has that eye color"
   }
   
-  const hasEyeColor = characters.some((char) => {
-    if (char.eye_color === eyes){
-      return true
-    }
-  })
-  return hasEyeColor
+  return characters.some((char) => (char.eye_color === eyes))
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -178,7 +170,10 @@ function checkForEyeColor(characters, eyes) {
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+  return characters.filter((char) => Number(char.created.slice(0,4)) >= date)
+  
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
