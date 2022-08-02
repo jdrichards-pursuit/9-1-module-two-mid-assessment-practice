@@ -41,7 +41,14 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if(!characters.length) throw `No characters in the inputted array`
+  // return characters.map(({name}) => name)
+
+  //REDUCE
+  return characters.reduce((accum, {name}) => [...accum, name],[])
+
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -61,10 +68,18 @@ function listAllCharacters() {}
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  // let sum = 0
+  // characters.forEach(({height}) => sum += (+height) )
+  // return sum / characters.length
+
+  // REDUCE
+  return characters.reduce((accum, {height}) => accum + +height ,0) / characters.length
+  
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+console.log(averageHeightOfAllCharacters(characters))
 
 //*************************************************************************************************/
 
@@ -98,7 +113,18 @@ function averageHeightOfAllCharacters() {}
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if(!characters.length) throw `The inputted array has no characters`
+  // return characters.some(({eye_color}) => eye_color === eyes)
+  
+  // REDUCE
+  return characters.reduce((accum, {eye_color}) => {
+    if(eye_color === eyes) accum = true
+    return accum
+  } ,false)
+
+
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
@@ -150,7 +176,16 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+// created: '2012-12-10T15:18:20.704000Z'
+  // return characters.filter(({created}) => +(created.slice(0,4)) >= date)
+
+  // REDUCE 
+  return characters.reduce((accum, obj) => {
+    if(+(obj.created.slice(0,4)) >= date) return [...accum, obj]
+    return accum
+  } ,[])
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
@@ -205,7 +240,19 @@ function getAllCharactersCreatedAfterYear() {}
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  // .films -> []
+  if(!characters.length || !movie) throw `There is no inputted data`
+  // return characters.find(({films}) => films.includes(movie))
+
+  // REDUCE
+ let find = characters.reduce((accum, obj) => {
+  if(obj.films.includes(movie)) return [...accum, obj]
+  return accum
+ },[])
+ return find[0]
+ 
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
@@ -225,7 +272,11 @@ function getCharacterInMovie() {}
  *  @returns {Array[]}} - returns an array of arrays.
  */
 
-function homeWorldValues() {}
+function homeWorldValues(characters) {
+  // eye_color
+  const eyeArr = characters.filter(({eye_color}) => eye_color === `yellow`)
+  return eyeArr.forEach((obj) => console.log(Object.entries(obj)))
+}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(homeWorldValues(characters));
