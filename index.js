@@ -122,11 +122,11 @@ function averageHeightOfAllCharacters(characters) {
  */
 
 function checkForEyeColor(characters, eyes) {
+  if (characters.length === 0){
+    throw 'Error: No one has that eye color'
+  }
   let status = null
   const checkEye = characters.some((char) => {
-    if (characters.length === 0){
-      throw 'Error: No one has that eye color'
-    }
     if (char.eye_color === eyes){
       status = true 
     }
@@ -206,14 +206,18 @@ function getAllCharactersCreatedAfterYear(characters, date) {
 // //     return char
 // // })
 // // return result
-let newArr = []
-var newArray = characters.filter(function (el) {
-  if (Number(el.created.slice(0,4)) > date){
-    newArr.push(el)
-  }
-  return Number(el.created.slice(0,4)) > date
+// let newArr = []
+// var newArray = characters.filter(function (el) {
+//   if (Number(el.created.slice(0,4)) > date){
+//     newArr.push(el)
+//   }
+//   return Number(el.created.slice(0,4)) > date
+// })
+// return newArr
+const filter = characters.filter(({created}) => {
+  return (created.slice(0,4)) >= date
 })
-return newArr
+return filter
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -273,11 +277,9 @@ function getCharacterInMovie(characters, movie) {
   if (movie.length === 0){
     throw 'movie array must contain one data item'
   }
-  const found = characters.find(char => {
-    second = char.films.find(film => {
-      film === movie
+  const found = characters.find(({films}) => {
+    return films.includes(movie)
     })
-  })
   return found
 }
 
