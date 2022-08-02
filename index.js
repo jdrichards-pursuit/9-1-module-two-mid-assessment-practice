@@ -45,8 +45,8 @@ function listAllCharacters(characters) {
   if (!characters.length) {
     throw `Error: array is empty`;
   }
-  const charNames = characters.map((char) => char.name);
-  return charNames;
+  const names = characters.map(({ name }) => name);
+  return names;
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -67,7 +67,11 @@ function listAllCharacters(characters) {
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  let heightSum = 0;
+  characters.forEach(({ height }) => heightSum += + height);
+  return heightSum / characters.length;
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 //console.log(averageHeightOfAllCharacters(characters))
