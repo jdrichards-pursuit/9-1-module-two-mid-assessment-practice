@@ -188,7 +188,7 @@ function getAllCharactersCreatedAfterYear(characters, date) {
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
@@ -246,13 +246,18 @@ function getCharacterInMovie(characters, movie) {
   // return characters.find(({films}) => films.includes(movie))
 
   // REDUCE
-  
+ let find = characters.reduce((accum, obj) => {
+  if(obj.films.includes(movie)) return [...accum, obj]
+  return accum
+ },[])
+ return find[0]
+ 
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
 // console.log(getCharacterInMovie([], 'The Phantom Menace'));
-// console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
+console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
 
 //*************************************************************************************************/
 // ****BONUS NO TESTS FOR THIS
