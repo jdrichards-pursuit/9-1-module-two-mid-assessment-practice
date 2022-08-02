@@ -160,7 +160,10 @@ function checkForEyeColor(characters, eyes) {
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+// created: '2012-12-10T15:18:20.704000Z'
+  return characters.filter(({created}) => +(created.slice(0,4)) >= date)
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
