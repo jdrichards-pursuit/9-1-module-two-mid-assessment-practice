@@ -126,7 +126,7 @@ function checkForEyeColor(characters, eyes) {
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
-console.log(checkForEyeColor(characters, "blue-gray"));
+// console.log(checkForEyeColor(characters, "blue-gray"));
 
 //*************************************************************************************************/
 
@@ -174,10 +174,14 @@ console.log(checkForEyeColor(characters, "blue-gray"));
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+  return characters.filter(
+    ({ created }) => Number(created.slice(0, 4)) >= date
+  );
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
