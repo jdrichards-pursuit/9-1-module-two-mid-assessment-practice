@@ -181,11 +181,14 @@ function getAllCharactersCreatedAfterYear(characters, date) {
   // return characters.filter(({created}) => +(created.slice(0,4)) >= date)
 
   // REDUCE 
-  return characters.reduce
+  return characters.reduce((accum, obj) => {
+    if(+(obj.created.slice(0,4)) >= date) return [...accum, obj]
+    return accum
+  } ,[])
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(getAllCharactersCreatedAfterYear(characters, 2016));
+console.log(getAllCharactersCreatedAfterYear(characters, 2016));
 
 //*************************************************************************************************/
 
@@ -240,7 +243,10 @@ function getAllCharactersCreatedAfterYear(characters, date) {
 function getCharacterInMovie(characters, movie) {
   // .films -> []
   if(!characters.length || !movie) throw `There is no inputted data`
-  return characters.find(({films}) => films.includes(movie))
+  // return characters.find(({films}) => films.includes(movie))
+
+  // REDUCE
+  
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
