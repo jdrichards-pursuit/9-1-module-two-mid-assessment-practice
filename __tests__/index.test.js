@@ -8,7 +8,7 @@ const {
 
 const characters = require('../swapi');
 
-describe.only('listAllCharacters', () => {
+describe('listAllCharacters', () => {
   test('should use the `.map()` method', () => {
     const text = listAllCharacters.toString();
     expect(text).toMatch(/\.map\(.*\)/s);
@@ -35,7 +35,7 @@ describe.only('listAllCharacters', () => {
   });
 });
 
-describe('averageHeightOfAllCharacters', () => {
+describe.only('averageHeightOfAllCharacters', () => {
   test('should use the `.forEach()` method', () => {
     const text = averageHeightOfAllCharacters.toString();
     expect(text).toMatch(/\.forEach\(.*\)/s);
