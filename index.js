@@ -43,7 +43,11 @@ const characters = require('./swapi');
 
 function listAllCharacters(characters) {
   if(!characters.length) throw `No characters in the inputted array`
-  return characters.map(({name}) => name)
+  // return characters.map(({name}) => name)
+
+  //REDUCE
+  return characters.reduce((accum, {name}) => [...accum, name],[])
+
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -65,13 +69,17 @@ function listAllCharacters(characters) {
  */
 
 function averageHeightOfAllCharacters(characters) {
-  let sum = 0
-  characters.forEach(({height}) => sum += (+height) )
-  return sum / characters.length
+  // let sum = 0
+  // characters.forEach(({height}) => sum += (+height) )
+  // return sum / characters.length
+
+  // REDUCE
+  let total = characters.reduce((accum, {height}) => accum + +height ,0) 
+  return total / characters.length
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+// console.log(averageHeightOfAllCharacters(characters))
 
 //*************************************************************************************************/
 
@@ -107,7 +115,15 @@ function averageHeightOfAllCharacters(characters) {
 
 function checkForEyeColor(characters, eyes) {
   if(!characters.length) throw `The inputted array has no characters`
-  return characters.some(({eye_color}) => eye_color === eyes)
+  // return characters.some(({eye_color}) => eye_color === eyes)
+  
+  // REDUCE
+  return characters.reduce((accum, {eye_color}) => {
+    if(eye_color === eyes) accum = true
+    return accum
+  } ,false)
+
+
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -162,7 +178,10 @@ function checkForEyeColor(characters, eyes) {
 
 function getAllCharactersCreatedAfterYear(characters, date) {
 // created: '2012-12-10T15:18:20.704000Z'
-  return characters.filter(({created}) => +(created.slice(0,4)) >= date)
+  // return characters.filter(({created}) => +(created.slice(0,4)) >= date)
+
+  // REDUCE 
+  return characters.reduce
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -249,7 +268,7 @@ function homeWorldValues(characters) {
 }
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(homeWorldValues(characters));
+// console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
