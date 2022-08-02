@@ -8,7 +8,7 @@ const characters = require('./swapi');
  * Returns all character names from an array of characters. If the inputted array is empty, throw an
  * Error.
  * You must use the .map method
- * 
+ *
  * 
  * @param {Object[]} characters - an array of movie characters
  * @returns {string[]|Error} an array of strings, which are character names or an error
@@ -41,7 +41,13 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if (!characters.length){
+    throw "no characters"
+  }
+  let char = characters.map((characters)=>characters.name)
+  return char
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -228,7 +234,7 @@ function getCharacterInMovie() {}
 function homeWorldValues() {}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(homeWorldValues(characters));
+//console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS

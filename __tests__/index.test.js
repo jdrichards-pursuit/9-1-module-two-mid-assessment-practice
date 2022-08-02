@@ -8,7 +8,7 @@ const {
 
 const characters = require('../swapi');
 
-describe('listAllCharacters', () => {
+describe.only('listAllCharacters', () => {
   test('should use the `.map()` method', () => {
     const text = listAllCharacters.toString();
     expect(text).toMatch(/\.map\(.*\)/s);
