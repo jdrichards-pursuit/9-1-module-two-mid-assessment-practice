@@ -105,7 +105,10 @@ function averageHeightOfAllCharacters(characters) {
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if(!characters.length) throw `The inputted array has no characters`
+  return characters.some(({eye_color}) => eye_color === eyes)
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
