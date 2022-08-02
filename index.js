@@ -83,7 +83,7 @@ function averageHeightOfAllCharacters(characters) {
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-console.log(averageHeightOfAllCharacters(characters));
+// console.log(averageHeightOfAllCharacters(characters));
 
 //*************************************************************************************************/
 
@@ -117,11 +117,16 @@ console.log(averageHeightOfAllCharacters(characters));
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if (!characters.length) {
+    throw "Error: No one has that eye color";
+  }
+  return characters.some(({ eye_color }) => eye_color === eyes);
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
-// console.log(checkForEyeColor(characters, "blue-gray"));
+console.log(checkForEyeColor(characters, "blue-gray"));
 
 //*************************************************************************************************/
 
