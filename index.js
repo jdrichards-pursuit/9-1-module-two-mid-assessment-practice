@@ -41,7 +41,16 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if (characters.length === 0){
+    throw "You need to have an charaters object with atleast one character in it!"
+  }
+
+  const listAllChar = characters.map ( char => {
+    return char.name
+  })
+  return listAllChar
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -61,7 +70,21 @@ function listAllCharacters() {}
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  sum = 0
+  divnum = 0
+  avg = 0
+  if (characters.length === 0){
+    throw "You need to have an characters object with atleast one character in it!"
+  }
+
+  const avgCharHeight = characters.forEach ( char => {
+    divnum++
+    sum = Number(char.height) + sum
+  })
+  avg = sum / divnum
+  return avg
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 //console.log(averageHeightOfAllCharacters(characters))
@@ -98,7 +121,21 @@ function averageHeightOfAllCharacters() {}
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if (characters.length === 0){
+    throw 'Error: No one has that eye color'
+  }
+  let status = null
+  const checkEye = characters.some((char) => {
+    if (char.eye_color === eyes){
+      status = true 
+    }
+  })
+  if (status === null){
+    status = false
+  }
+  return status
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
@@ -150,7 +187,38 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+//   let formmatedDate = 0
+//   let newObject = {}
+//   let newArr = []
+
+// function createdAfter(date, formmatedDate) {
+//   return formmatedDate > date
+// }
+// let filtered = characters.filter(createdAfter)
+
+// //   const result = characters.filter((char) => {
+// //     formmatedDate = char.created.slice(0,4)
+// //     if (Number(formmatedDate) > date){
+// //       newObject = char
+// //       return char
+// //     }
+// //     return char
+// // })
+// // return result
+// let newArr = []
+// var newArray = characters.filter(function (el) {
+//   if (Number(el.created.slice(0,4)) > date){
+//     newArr.push(el)
+//   }
+//   return Number(el.created.slice(0,4)) > date
+// })
+// return newArr
+const filter = characters.filter(({created}) => {
+  return (created.slice(0,4)) >= date
+})
+return filter
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
@@ -205,7 +273,15 @@ function getAllCharactersCreatedAfterYear() {}
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  if (movie.length === 0){
+    throw 'movie array must contain one data item'
+  }
+  const found = characters.find(({films}) => {
+    return films.includes(movie)
+    })
+  return found
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
