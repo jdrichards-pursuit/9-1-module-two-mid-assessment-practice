@@ -1,4 +1,5 @@
-const characters = require('./swapi');
+const results = require("./swapi");
+const characters = require("./swapi");
 // ****** DO NOT CHANGE THE LINE ABOVE
 // ****** IN THIS EXERCISE, TIME EACH CONSOLE.LOG ONE AT A TIME AND THEN COMMENT IT BACK OUT OR OTHER FUNCTIONS WILL NOT TEST CORRECTLY
 
@@ -41,7 +42,25 @@ const characters = require('./swapi');
  *
  */
 
-function listAllCharacters() {}
+function listAllCharacters(characters) {
+  if (!characters.length) {
+    throw "Error";
+  }
+  // return characters.map(({ name }) => {
+  //   if (name) {
+  //     return name;
+  //   }
+  // });
+
+  return characters.map(({ name }) => name);
+
+  // characters.reduce((acc, { name }) => {
+  //   if (name) {
+  //     acc.push(name);
+  //   }
+  //   return acc;
+  // }, []);
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(listAllCharacters([]));
@@ -61,10 +80,29 @@ function listAllCharacters() {}
  * No example for this one. You should be able to find the average at this point
  */
 
-function averageHeightOfAllCharacters() {}
+function averageHeightOfAllCharacters(characters) {
+  //guard clause
+
+  if (!characters.length) {
+    throw "error";
+  }
+  // let average = 0;
+  // characters.forEach((a) => {
+  //   if (a.height) {
+  //     average += a.height / characters.length;
+  //     Number(average.toFixed(1));
+  //   }
+  // });
+  // return average;
+
+  return characters.reduce(
+    (avg, { height }) => (avg += Number(height / characters.length)),
+    0
+  );
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+// console.log(averageHeightOfAllCharacters(characters));
 
 //*************************************************************************************************/
 
@@ -98,7 +136,12 @@ function averageHeightOfAllCharacters() {}
  *
  */
 
-function checkForEyeColor() {}
+function checkForEyeColor(characters, eyes) {
+  if (!characters.length) {
+    throw "Error: No one has that eye color";
+  }
+  return characters.some(({ eye_color }) => eye_color === eyes);
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
@@ -150,7 +193,15 @@ function checkForEyeColor() {}
  *
  */
 
-function getAllCharactersCreatedAfterYear() {}
+function getAllCharactersCreatedAfterYear(characters, date) {
+  // guard clause
+  if (!characters.length) {
+    throw "error";
+  }
+  return characters.filter(
+    ({ created }) => Number(created.slice(0, 4)) >= date
+  );
+}
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getAllCharactersCreatedAfterYear(characters, 2016));
@@ -205,7 +256,26 @@ function getAllCharactersCreatedAfterYear() {}
    }
  */
 
-function getCharacterInMovie() {}
+function getCharacterInMovie(characters, movie) {
+  if (!characters.length || !movie.length) {
+    throw "Error";
+  }
+
+  // concise version
+  // return characters.find(({ films }) => films.includes(movie));
+
+  // longer version
+  return characters.find((character) => {
+    // character.films.forEach((film) => {
+    //   if (film === movie) {
+    //     return characters;
+    //   }
+    let movies = character.films;
+    return movies.find((film) => film === movie);
+    // return characters.films;
+  });
+}
+// }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
@@ -225,7 +295,18 @@ function getCharacterInMovie() {}
  *  @returns {Array[]}} - returns an array of arrays.
  */
 
-function homeWorldValues() {}
+function homeWorldValues(characters) {
+  const values = characters.filter(({ eye_color }) => eye_color === "yellow");
+  return values.forEach((obj) => console.log(Object.values(obj)));
+
+  // const values2 = characters.reduce((acc, i) => {
+  //   if (i.eye_color.includes("yellow")) {
+  //     acc.push(i);
+  //   }
+  //   return acc;
+  // }, []);
+  // return values2.forEach((obj) => console.log(Object.values(obj)));
+}
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(homeWorldValues(characters));
@@ -241,5 +322,5 @@ module.exports = {
   averageHeightOfAllCharacters,
   checkForEyeColor,
   getAllCharactersCreatedAfterYear,
-  getCharacterInMovie
+  getCharacterInMovie,
 };
