@@ -95,10 +95,10 @@ function averageHeightOfAllCharacters(characters) {
   // });
   // return average;
 
-  // return characters.reduce(
-  //   (avg, { height }) => (avg += Number(height / characters.length)),
-  //   0
-  // );
+  return characters.reduce(
+    (avg, { height }) => (avg += Number(height / characters.length)),
+    0
+  );
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -260,8 +260,22 @@ function getCharacterInMovie(characters, movie) {
   if (!characters.length || !movie.length) {
     throw "Error";
   }
-  return characters.find(({ films }) => films.includes(movie));
+
+  // concise version
+  // return characters.find(({ films }) => films.includes(movie));
+
+  // longer version
+  return characters.find((character) => {
+    // character.films.forEach((film) => {
+    //   if (film === movie) {
+    //     return characters;
+    //   }
+    let movies = character.films;
+    return movies.find((film) => film === movie);
+    // return characters.films;
+  });
 }
+// }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
