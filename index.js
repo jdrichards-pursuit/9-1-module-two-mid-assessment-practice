@@ -51,12 +51,15 @@ function listAllCharacters(characters) {
   //     return name;
   //   }
   // });
-  characters.reduce((acc, { name }) => {
-    if (name) {
-      acc.push(name);
-    }
-    return acc;
-  }, []);
+
+  return characters.map(({ name }) => name);
+
+  // characters.reduce((acc, { name }) => {
+  //   if (name) {
+  //     acc.push(name);
+  //   }
+  //   return acc;
+  // }, []);
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -78,14 +81,24 @@ function listAllCharacters(characters) {
  */
 
 function averageHeightOfAllCharacters(characters) {
-  let average = 0;
-  characters.forEach((a) => {
-    if (a.height) {
-      average += a.height / characters.length;
-      Number(average.toFixed(1));
-    }
-  });
-  return average;
+  //guard clause
+
+  if (!characters.length) {
+    throw "error";
+  }
+  // let average = 0;
+  // characters.forEach((a) => {
+  //   if (a.height) {
+  //     average += a.height / characters.length;
+  //     Number(average.toFixed(1));
+  //   }
+  // });
+  // return average;
+
+  // return characters.reduce(
+  //   (avg, { height }) => (avg += Number(height / characters.length)),
+  //   0
+  // );
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
@@ -181,6 +194,10 @@ function checkForEyeColor(characters, eyes) {
  */
 
 function getAllCharactersCreatedAfterYear(characters, date) {
+  // guard clause
+  if (!characters.length) {
+    throw "error";
+  }
   return characters.filter(
     ({ created }) => Number(created.slice(0, 4)) >= date
   );
