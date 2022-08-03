@@ -186,6 +186,13 @@ function getAllCharactersCreatedAfterYear(characters, date) {
       return char;
     }
   });
+  //reduce version
+  // return characters.reduce((acc, el) => {
+  //   if (+el.created.slice(0, 4) >= date) {
+  //     acc = [...acc, el];
+  //   }
+  //   return acc;
+  // }, []);
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
