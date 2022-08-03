@@ -121,11 +121,18 @@ function checkForEyeColor(characters, eyes) {
     throw `Error: No one has that eye color`;
   }
   return characters.some(({ eye_color }) => eye_color === eyes);
+  //reduce version
+  // return characters.reduce((acc, el) => {
+  //   if (el.eye_color === eyes) {
+  //     acc = true;
+  //   }
+  //   return acc;
+  // }, false);
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(checkForEyeColor([]));
-// console.log(checkForEyeColor(characters, "blue-gray"));
+//console.log(checkForEyeColor(characters, "blue-gray"));
 
 //*************************************************************************************************/
 
