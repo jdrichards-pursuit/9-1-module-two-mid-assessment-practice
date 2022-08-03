@@ -46,12 +46,18 @@ function listAllCharacters(characters) {
     throw `Error: Array is empty`;
   }
   const names = characters.map(({ name }) => name);
+  //reduce version
+  //const names = characters.reduce((acc, el) => {
+    //acc.push(el.name); //alternative below
+    // acc = [...acc, el.name];
+    //return acc;
+  //}, []);
   return names;
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(listAllCharacters([]));
-// console.log(listAllCharacters(characters));
+//console.log(listAllCharacters([]));
+//console.log(listAllCharacters(characters));
 
 //*************************************************************************************************/
 
@@ -252,11 +258,20 @@ function getCharacterInMovie(characters, movie) {
  */
 
 function homeWorldValues(characters) {
-  
+  return characters.reduce((acc, el) => {
+    if (el.eye_color === `yellow`) {
+      // replace homeworld obj with an array of values
+      let arrHome = Object.values(el.homeworld);
+      el.homeworld = arrHome;
+      // could run this line alone to keep homeworld obj
+      acc.push(Object.values(el));
+    }
+    return acc;
+  }, []);
 }
 
 //UNCOMMENT THE LINE BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(homeWorldValues(characters));
+//console.log(homeWorldValues(characters));
 
 //*************************************************************************************************/
 // ****SECOND BONUS
