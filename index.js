@@ -131,7 +131,7 @@ function checkForEyeColor(characters, eyes) {
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-// console.log(checkForEyeColor([]));
+//console.log(checkForEyeColor([]));
 //console.log(checkForEyeColor(characters, "blue-gray"));
 
 //*************************************************************************************************/
@@ -253,12 +253,22 @@ function getCharacterInMovie(characters, movie) {
     throw `Error: Provide valid array and movie`;
   }
   return characters.find(({ films }) => films.includes(movie));
+  //reduce version
+  // return characters.reduce((acc, el) => {
+  //   if (acc !== undefined) {
+  //     return acc;
+  //   }
+  //   if (el.films.includes(movie)) {
+  //     acc = el;
+  //     return acc;
+  //   }
+  // }, undefined);
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
 // console.log(getCharacterInMovie(characters, ''));
 // console.log(getCharacterInMovie([], 'The Phantom Menace'));
-// console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
+//console.log(getCharacterInMovie(characters, 'The Phantom Menace'));
 
 //*************************************************************************************************/
 // ****BONUS NO TESTS FOR THIS
@@ -276,7 +286,7 @@ function getCharacterInMovie(characters, movie) {
 function homeWorldValues(characters) {
   return characters.reduce((acc, el) => {
     if (el.eye_color === `yellow`) {
-      // replace homeworld obj with an array of values
+      // replace homeworld obj with its array of values
       let arrHome = Object.values(el.homeworld);
       el.homeworld = arrHome;
       // could run this line alone to keep homeworld obj
