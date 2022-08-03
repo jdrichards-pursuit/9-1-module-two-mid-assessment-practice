@@ -48,9 +48,9 @@ function listAllCharacters(characters) {
   const names = characters.map(({ name }) => name);
   //reduce version
   //const names = characters.reduce((acc, el) => {
-    //acc.push(el.name); //alternative below
-    // acc = [...acc, el.name];
-    //return acc;
+  //acc.push(el.name); //alternative below
+  // acc = [...acc, el.name];
+  //return acc;
   //}, []);
   return names;
 }
@@ -76,11 +76,13 @@ function listAllCharacters(characters) {
 function averageHeightOfAllCharacters(characters) {
   let heightSum = 0;
   characters.forEach(({ height }) => (heightSum += +height));
+  // reduce version
+  // const heightSum = characters.reduce((acc, el) => acc + +el.height, 0)
   return heightSum / characters.length;
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
-//console.log(averageHeightOfAllCharacters(characters))
+//console.log(averageHeightOfAllCharacters(characters));
 
 //*************************************************************************************************/
 
