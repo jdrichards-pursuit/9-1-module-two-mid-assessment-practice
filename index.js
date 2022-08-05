@@ -286,11 +286,7 @@ function getCharacterInMovie(characters, movie) {
 function homeWorldValues(characters) {
   return characters.reduce((acc, el) => {
     if (el.eye_color === `yellow`) {
-      // replace homeworld obj with its array of values
-      let arrHome = Object.values(el.homeworld);
-      el.homeworld = arrHome;
-      // could run this line alone to keep homeworld obj
-      acc.push(Object.values(el));
+      acc = [...acc, Object.values(el.homeworld)];
     }
     return acc;
   }, []);
