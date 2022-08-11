@@ -229,7 +229,8 @@ function getCharacterInMovie(characters, movie) {
   } if(!movie){
     throw `Error`
   }
-  return characters.find((character) => character.films.includes(movie))
+  // return characters.find((character) => character.films.includes(movie))
+  characters.reduce(acc, el){}
 }
 
 //UNCOMMENT THE LINES ONE AT A TIME BELOW TO TEST YOUR SOLUTION MANUALLY, THEN COMMENT BACK IN
